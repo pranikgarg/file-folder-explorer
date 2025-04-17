@@ -1,0 +1,154 @@
+[
+  {
+    "id": "1",
+    "name": "root",
+    "isFolder": true,
+    "children": [
+      {
+        "id": "2",
+        "name": "Projects",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "3",
+            "name": "ProjectAlpha",
+            "isFolder": true,
+            "children": [
+              {
+                "id": "4",
+                "name": "README.md",
+                "isFolder": false
+              },
+              {
+                "id": "5",
+                "name": "src",
+                "isFolder": true,
+                "children": [
+                  {
+                    "id": "6",
+                    "name": "index.js",
+                    "isFolder": false
+                  },
+                  {
+                    "id": "7",
+                    "name": "utils.js",
+                    "isFolder": false
+                  }
+                ]
+              },
+              {
+                "id": "8",
+                "name": "package.json",
+                "isFolder": false
+              }
+            ]
+          },
+          {
+            "id": "9",
+            "name": "DesignDocs",
+            "isFolder": true,
+            "children": [
+              {
+                "id": "10",
+                "name": "Wireframes",
+                "isFolder": true,
+                "children": [
+                  {
+                    "id": "11",
+                    "name": "Homepage.png",
+                    "isFolder": false
+                  },
+                  {
+                    "id": "12",
+                    "name": "Dashboard.png",
+                    "isFolder": false
+                  }
+                ]
+              },
+              {
+                "id": "13",
+                "name": "StyleGuide.pdf",
+                "isFolder": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "14",
+        "name": "Downloads",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "15",
+            "name": "installer.exe",
+            "isFolder": false
+          },
+          {
+            "id": "16",
+            "name": "invoice_April2025.pdf",
+            "isFolder": false
+          }
+        ]
+      },
+      {
+        "id": "17",
+        "name": "Personal",
+        "isFolder": true,
+        "children": [
+          {
+            "id": "18",
+            "name": "Finance",
+            "isFolder": true,
+            "children": [
+              {
+                "id": "19",
+                "name": "Tax2024.xlsx",
+                "isFolder": false
+              },
+              {
+                "id": "20",
+                "name": "Investments",
+                "isFolder": true,
+                "children": [
+                  {
+                    "id": "21",
+                    "name": "mutual_funds.json",
+                    "isFolder": false
+                  },
+                  {
+                    "id": "22",
+                    "name": "stocks.csv",
+                    "isFolder": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "23",
+            "name": "Health",
+            "isFolder": true,
+            "children": [
+              {
+                "id": "24",
+                "name": "medical_report.pdf",
+                "isFolder": false
+              },
+              {
+                "id": "25",
+                "name": "vaccination_history.docx",
+                "isFolder": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "26",
+        "name": "notes.txt",
+        "isFolder": false
+      }
+    ]
+  }
+]
