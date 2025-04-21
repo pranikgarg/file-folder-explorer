@@ -23,3 +23,8 @@
 .file-explorer-container .expand-icon {
   margin-right: 5px;
 }
+
+.file-explorer-container .delete-icon {
+  width: 15px;
+  margin-left: 5px;
+}

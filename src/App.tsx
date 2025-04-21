@@ -53,13 +53,16 @@ const initialData: FileNode[] = sortFileTree(JSONData);
  * Props:
  * - nodes: array of FileNode objects for the current level
  * - addFileOrFolder: callback to add a child node under a folder
+ * - deleteHandler: callback to delete a child node under a folder
  */
 const List = ({
   nodes,
   addFileOrFolder,
+  deleteHandler,
 }: {
   nodes: FileNode[];
   addFileOrFolder: (parentId: string) => void;
+  deleteHandler: (parentId: string) => void;
 }) => {
   const [isExpanded, setIsExpanded] = useState<ExpandedState>({}); // Track expansion state by folder name
 
@@ -87,9 +90,22 @@ const List = ({
             {/* Folder name */}
             <span>{node.name}</span>
 
+            {/* Delete icon = clicking delete file/folder this node */}
+            <span onClick={() => deleteHandler(node.id)}>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+                alt="delete icon"
+                className="delete-icon"
+              />
+            </span>
+
             {/* Recursively render children if expanded */}
             {isExpanded[node.name] && node.children && (
-              <List nodes={node.children} addFileOrFolder={addFileOrFolder} />
+              <List
+                nodes={node.children}
+                addFileOrFolder={addFileOrFolder}
+                deleteHandler={deleteHandler}
+              />
             )}
           </li>
         ) : (
@@ -97,6 +113,13 @@ const List = ({
           <li key={node.id}>
             <span>📄</span>
             <span>{node.name}</span>
+            <span onClick={() => deleteHandler(node.id)}>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+                alt="delete icon"
+                className="delete-icon"
+              />
+            </span>
           </li>
         )
       )}
@@ -164,12 +187,45 @@ function App() {
     setData((prev) => sortFileTree(updatedTree(prev)));
   };
 
+  /**
+   * Delete a file or folder (identified by parentId)
+   * Triggered when user clicks on a delete icon.
+   */
+  const deleteHandler = (parentId: string): void => {
+    /**
+     * Recursive helper function to update the tree
+     * - Searches for the node with parentId
+     * - delete the node and its childrens
+     */
+    const updatedTree = (list: FileNode[]): FileNode[] => {
+      return (
+        list
+          // filter out the file/folder which matches the parent id
+          .filter((node) => node.id !== parentId)
+          .map((node) => {
+            // Recurse into children if present
+            if (node.children) {
+              return { ...node, children: updatedTree(node.children) };
+            }
+
+            return node;
+          })
+      );
+    };
+    // Update app state with the modified tree
+    setData((prev) => updatedTree(prev));
+  };
+
   return (
     <div className="file-explorer-container">
       <h1>File/Folder Explorers</h1>
 
       {/* Render tree starting from root */}
-      <List nodes={data} addFileOrFolder={addFileOrFolder} />
+      <List
+        nodes={data}
+        addFileOrFolder={addFileOrFolder}
+        deleteHandler={deleteHandler}
+      />
     </div>
   );
 }
