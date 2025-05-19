@@ -8,6 +8,7 @@ A simple, interactive file/folder explorer built with **React 19**, **TypeScript
 
 - 📁 Visual file/folder hierarchy
 - ➕ Add files/folders via prompt dialogs
+- ❌ Delete file/folder
 - 📂 Expand/Collapse folders
 - 🔤 Sorted folders before files, alphabetically
 - 🔧 Fully typed with TypeScript
@@ -27,8 +28,6 @@ cd file-folder-explorer
 ### 🔮 Future Enhancements
 
 ✏️ Rename file/folder
-
-❌ Delete file/folder
 
 💾 Persist data (e.g., localStorage or backend)
 
